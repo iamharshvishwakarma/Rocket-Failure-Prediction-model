@@ -28,4 +28,26 @@
 
 <h2 id="installation">Installation</h2>
 <h3>Clone the Repository:</h3>
-<pre><code>git clone https://github.com/your-username/rocket-failure-prediction.git
+<pre><code>git clone https://github.com/your-username/rocket-failure-prediction.git    
+<h3>Install Required Libraries:</h3>
+<pre><code>pip install pandas scikit-learn</code></pre>
+
+<h2 id="usage">Usage</h2>
+<h3>Run the Model:</h3>
+<pre><code>python rocket_failure_prediction.py</code></pre>
+<p>The program will prompt you to enter:</p>
+<ul>
+    <li>Temperature (°F)</li>
+    <li>Wind Speed (MPH)</li>
+    <li>Humidity (%)</li>
+</ul>
+
+<h2 id="how-it-works">How It Works</h2>
+<ul>
+    <li><strong>Data Preprocessing:</strong> The dataset is loaded and preprocessed to handle missing values.</li>
+    <li><strong>Model Training:</strong> A Decision Tree Classifier is trained on the preprocessed data.</li>
+    <li><strong>Prediction:</strong> The trained model takes user input and predicts the outcome.</li>
+</ul>
+
+<h2 id="example">Example</h2>
+<pre><code>Enter Temperature (°F): 75
