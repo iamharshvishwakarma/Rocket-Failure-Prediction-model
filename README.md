@@ -1,102 +1,156 @@
-# Rocket Failure Prediction Using Weather Data
+Rocket Failure Prediction Models
+This repository contains two machine learning models for predicting rocket launch failures:
 
-This project uses a Decision Tree Classifier to predict whether a rocket launch will fail or succeed based on weather conditions such as temperature, wind speed, and humidity. The model is trained on historical rocket launch data and can be used to make predictions for new inputs.
+Weather-Based Model: Predicts rocket failure based on weather conditions (temperature, wind speed, and humidity).
+Thrust-to-Weight Ratio Model: Predicts rocket failure based on the Thrust-to-Weight Ratio, calculated using Liftoff Thrust and Payload Mass.
+Both models use a Decision Tree Classifier and are trained on historical rocket launch data.
 
-## Table of Contents
+Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [How It Works](#how-it-works)
-- [Example](#example)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+Overview
+Features
+Installation
+Usage
+Weather-Based Model
+Thrust-to-Weight Ratio Model
+How It Works
+Example
+Contributing
+License
+Overview
 
-## Overview
+The goal of this project is to predict the success or failure of a rocket launch using two different approaches:
 
-The goal of this project is to predict the success or failure of a rocket launch based on weather conditions. The model is trained using a Decision Tree Algorithm and takes three inputs from the user:
+Weather-Based Model: Uses weather conditions (temperature, wind speed, and humidity) as input features.
+Thrust-to-Weight Ratio Model: Uses the Thrust-to-Weight Ratio, calculated from Liftoff Thrust and Payload Mass, as the input feature.
+Both models are implemented using a Decision Tree Classifier and can be used to make predictions for new inputs.
 
-- Temperature (°F)
-- Wind Speed (MPH)
-- Humidity (%)
+Features
 
-Based on these inputs, the model predicts whether the rocket launch will fail or succeed.
-
-## Features
-
-- **User Input:** The program takes temperature, wind speed, and humidity as input from the user.
-- **Prediction:** The trained decision tree model predicts the outcome of the rocket launch.
-- **Output:** The program displays the prediction result (Success or Failure) to the user.
-
-## Installation
+Weather-Based Model:
+Takes Temperature (°F), Wind Speed (MPH), and Humidity (%) as input.
+Predicts whether the rocket launch will fail or succeed based on weather conditions.
+Thrust-to-Weight Ratio Model:
+Takes Liftoff Thrust (kN) and Payload Mass (kg) as input.
+Calculates the Thrust-to-Weight Ratio and predicts the outcome of the rocket launch.
+Installation
 
 To use this project, follow these steps:
 
-1. Clone the Repository:
-    ```bash
-    git clone https://github.com/your-username/rocket-failure-prediction.git
-    cd rocket-failure-prediction
-    ```
+Clone the Repository:
+bash
+Copy
+git clone https://github.com/your-username/rocket-failure-prediction.git
+cd rocket-failure-prediction
+Install Required Libraries:
+Ensure you have the following Python libraries installed:
+pandas
+scikit-learn
+numpy
+You can install them using pip:
+bash
+Copy
+pip install pandas scikit-learn numpy
+Download the Dataset:
+Place the SpaceMissions.csv file in the project directory. This dataset contains historical rocket launch data.
+Usage
 
-2. Install Required Libraries:
-    Ensure you have the following Python libraries installed:
-    ```bash
-    pip install pandas scikit-learn
-    ```
+Weather-Based Model
 
-3. Download the Dataset:
-    - Place the `SpaceMissions.csv` file in the project directory. This dataset contains historical rocket launch data.
+Train the Model:
+Run the script to train the weather-based model:
+bash
+Copy
+python train_weather_model.py
+Make Predictions:
+After training the model, you can make predictions by running:
+bash
+Copy
+python predict_weather.py
+The program will prompt you to enter the following inputs:
+Temperature (°F)
+Wind Speed (MPH)
+Humidity (%)
+Based on the input, the model will predict whether the rocket launch will fail or succeed.
+Thrust-to-Weight Ratio Model
 
-## Usage
+Train the Model:
+Run the script to train the Thrust-to-Weight Ratio model:
+bash
+Copy
+python train_thrust_weight_model.py
+Make Predictions:
+After training the model, you can make predictions by running:
+bash
+Copy
+python predict_thrust_weight.py
+The program will prompt you to enter the following inputs:
+Liftoff Thrust (kN)
+Payload Mass (kg)
+Based on the input, the model will predict whether the rocket launch will fail or succeed.
+How It Works
 
-1. Run the Integrated Script:
-    ```bash
-    python rocket_failure_prediction.py
-    ```
+Weather-Based Model
 
-2. The program will prompt you to enter:
-    - Temperature (°F)
-    - Wind Speed (MPH)
-    - Humidity (%)
+Data Preprocessing:
+The dataset is loaded and preprocessed to handle missing values.
+The target variable (Mission Status) is encoded as 0 for Success and 1 for Failure.
+Model Training:
+A Decision Tree Classifier is trained on the preprocessed data using weather features (Temperature, Wind Speed, Humidity).
+Prediction:
+The trained model takes user input for weather conditions and predicts the outcome of the rocket launch.
+Thrust-to-Weight Ratio Model
 
-3. Based on the input, the model will predict whether the rocket launch will fail or succeed.
+Data Preprocessing:
+The dataset is loaded and preprocessed to handle missing values.
+The Thrust-to-Weight Ratio is calculated using the formula:
+Thrust-to-Weight Ratio
+=
+Liftoff Thrust (kN)
+Payload Mass (kg)
+×
+9.81
+Thrust-to-Weight Ratio= 
+Payload Mass (kg)×9.81
+Liftoff Thrust (kN)
+​	
+ 
+The target variable (Mission Status) is encoded as 0 for Success and 1 for Failure.
+Model Training:
+A Decision Tree Classifier is trained on the preprocessed data using the Thrust-to-Weight Ratio as the input feature.
+Prediction:
+The trained model takes user input for Liftoff Thrust (kN) and Payload Mass (kg), calculates the Thrust-to-Weight Ratio, and predicts the outcome of the rocket launch.
+Example
 
-## How It Works
+Weather-Based Model
 
-1. **Data Preprocessing:**
-    - The dataset is loaded and preprocessed to handle missing values.
-    - The target variable (`Mission Status`) is encoded as 0 for Success and 1 for Failure.
+bash
+Copy
+Enter Temperature (°F): 75
+Enter Wind Speed (MPH): 10
+Enter Humidity (%): 80
+Prediction: Rocket Launch **Success**
+Thrust-to-Weight Ratio Model
 
-2. **Model Training & Prediction:**
-    - A Decision Tree Classifier is trained on the preprocessed data using weather features.
-    - The trained model takes user input and predicts the outcome of the rocket launch.
-
-## Example
-
-Here’s an example of how the program works:
-
-    Enter Temperature (°F): 75
-    Enter Wind Speed (MPH): 10
-    Enter Humidity (%): 80
-    Prediction: Rocket Launch Success
-
-## Contributing
+bash
+Copy
+Enter Liftoff Thrust (kN): 5000
+Enter Payload Mass (kg): 10000
+Prediction: Rocket Launch **Success**
+Contributing
 
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Commit your changes.
-4. Push your changes to your fork.
-5. Submit a pull request.
-
-## License
+Fork the repository.
+Create a new branch for your feature or bugfix.
+Commit your changes.
+Push your changes to your fork.
+Submit a pull request.
+License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Acknowledgments
+Acknowledgments
 
-- **Dataset:** Space Missions Dataset
-- **Libraries:** pandas, scikit-learn
+Dataset: Space Missions Dataset
+Libraries: pandas, scikit-learn, numpy
