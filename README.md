@@ -18,7 +18,6 @@ Both models use a Decision Tree Classifier and are trained on historical rocket 
 - [How It Works](#how-it-works)
 - [Example](#example)
 - [Contributing](#contributing)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
@@ -145,10 +144,6 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 3. Commit your changes.
 4. Push your changes to your fork.
 5. Submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgments
 
